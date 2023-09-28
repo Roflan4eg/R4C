@@ -16,12 +16,13 @@ class MakeReportService:
 
         return list(counted_queryset)
 
-    def _get_path(self):
+    def _get_path(self) -> str:
         return f"Report from {self.fr.date()} to {self.to.date()}.xlsx"
 
-    def make_report(self):
+    def make_report(self) -> str:
         wb = Workbook()
-        for data in self._get_data_for_report():
+        data_for_report = self._get_data_for_report()
+        for data in data_for_report:
             model = data['model']
             version = data['version']
             amount = data['amount']
