@@ -18,7 +18,7 @@ class Send_Email_Notification:
             message=f"Добрый день!\n"
                     f"Недавно вы интересовались нашим роботом модели {model}, версии {version}.\n"
                     f"Этот робот теперь в наличии. Если вам подходит этот вариант - пожалуйста, свяжитесь с нами",
-            from_email='roflan4eg2002@gmail.com',
+            from_email='',
             recipient_list=data,
             fail_silently=False,
         )
