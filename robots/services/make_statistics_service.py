@@ -5,7 +5,6 @@ from openpyxl import Workbook
 
 
 class MakeReportService:
-
     def _get_data_for_report(self) -> list[dict]:
         self.to = timezone.now()
         self.fr = self.to - timezone.timedelta(days=7)
@@ -38,9 +37,9 @@ class MakeReportService:
                 ws = wb[model]
                 ws.append(robot_data)
 
-        path = self._get_path()
+        path = f"robots/services/{self._get_path()}"
         wb.remove(wb['Sheet'])
-        wb.save(f"robots/services/{path}")
+        wb.save(path)
         wb.close()
 
         return path
